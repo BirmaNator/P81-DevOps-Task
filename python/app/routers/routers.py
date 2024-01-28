@@ -1,3 +1,5 @@
+import os
+
 from fastapi import APIRouter
 
 from settings import CLOUDFRONT_URL
