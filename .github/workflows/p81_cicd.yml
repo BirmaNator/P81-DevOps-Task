@@ -30,7 +30,7 @@ jobs:
 
     - name: Format Terraform Code
       run: terraform fmt -check
-      working-directory: ./terraform-terragrunt
+      working-directory: ./terragrunt-terraform
 
     - name: Install Terragrunt
       run: |
@@ -40,7 +40,7 @@ jobs:
 
     - name: Terragrunt Apply
       run: | 
-        cd terraform-terragrunt/live/prod
+        cd terragrunt-terraform/live/prod
         terragrunt run-all apply --terragrunt-non-interactive
 
 
@@ -48,7 +48,7 @@ jobs:
     - name: Set output values
       id: output_values
       run: |
-        cd terraform-terragrunt/live/prod/cloudfront #Might want to change to /live/prod/cloudfront  
+        cd terragrunt-terraform/live/prod/cloudfront   
         echo "CLOUDFRONT_URL=$(terragrunt output -raw cloudfront_url)" >> $GITHUB_OUTPUT
         cd ../s3
         echo "S3_BUCKET_NAME=$(terragrunt output -raw bucket_name)" >> $GITHUB_OUTPUT
