@@ -72,6 +72,7 @@ This project uses GitHub Actions for Continuous Integration and Deployment. The 
 
 - **Infrastructure Deployment**: On push to the main branch or manual trigger, the workflow deploys the infrastructure using Terragrunt.
 - **FastAPI Application Deployment**: After successful infrastructure deployment, the workflow triggers the FastAPI application.
+- **Configure Secretes**: The workflow can be executed only when adding AWS_ACCESS_KEY_ID && AWS_SECRET_ACCESS_KEY as secrets for github actions.
 - **Automated Testing**: The workflow can be extended to include automated testing of the application endpoints.
 
 ## Built With
